@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+
+    <% if @user.errors.any? %>
+        <% @user.errors.messages.each_key do |field| %>
+            <% @user.errors.messages[field].each do |msg| %>
+                <%= "#{field} #{msg}" %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    Email: <%= f.text_field :email %> <br/>
+    Password: <%= f.password_field :password %>  <br/>
+    Password Confirmation: <%= f.password_field :password_confirmation %>  <br/>
+
+
+    <%= f.submit %>
+<% end %>

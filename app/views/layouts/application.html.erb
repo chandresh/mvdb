@@ -8,10 +8,22 @@
 </head>
 <body>
 
-<%= link_to 'New Genre', new_genre_path %>
-<br/>
-<%= link_to 'New Movie', new_movie_path %>
-<br/>
+<% if current_user.present? %>
+    <%= current_user.email %>
+    <%= link_to 'Log out', session_path, method: :delete %>
+<% else %>
+    <%= link_to 'Login', new_session_path %>
+<% end %>
+
+<% if current_user.present? %>
+
+    <%= link_to 'New Genre', new_genre_path %>
+    <br/>
+    <%= link_to 'New Movie', new_movie_path %>
+    <br/>
+
+<% end %>
+
 <%= flash[:notice] %>
 <hr/>
 

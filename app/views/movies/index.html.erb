@@ -1,9 +1,11 @@
 <% @genres.each do |genre| %>
     <h2><%= link_to genre.name, genre %></h2>
-    <small><%= link_to 'Delete', genre, method: :delete,
-                       data: {confirm: 'Are you sure?'} %></small>
+    <% if current_user.present? %>
+        <small><%= link_to 'Delete', genre, method: :delete,
+                           data: {confirm: 'Are you sure?'} %></small>
 
-    <small><%= link_to 'Edit', edit_genre_path(genre) %></small>
+        <small><%= link_to 'Edit', edit_genre_path(genre) %></small>
 
+    <% end %>
 
 <% end %>

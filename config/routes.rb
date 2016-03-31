@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'session/new'
+
+  get 'users/new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -8,6 +12,9 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:new, :create]
   resources :genres
+  resources :users, only: [:new, :create]
+
+  resource :session, only: [:new, :create, :destroy], controller: 'session'
 
   # get 'genres/:id' => 'genres#show', as: :genre_details
 
