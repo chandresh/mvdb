@@ -9,3 +9,34 @@
     <% end %>
 
 <% end %>
+
+
+<div id="content">
+
+  <% @genres.each do |genre| %>
+      <% genre.movies.each do |movie| %>
+          <div class="post">
+            <h2 class="title"><%= link_to movie.name, movie %></h2>
+            <%= link_to genre.name, genre %></h2>
+
+            <p class="meta">Posted by <a href="#">Someone</a> on July 8, 2011
+              &nbsp;&bull;&nbsp; <a href="#" class="comments">Comments (64)</a> &nbsp;&bull;&nbsp; <a
+            href="#" class="permalink">Full article</a></p>
+
+            <div class="entry">
+              <p>
+                <%= image_tag 'img02.jpg', size: '143x143', alt: 'hello' %>
+
+                Sed lacus. Donec lectus. Nullam pretium nibh ut
+                turpis. Nam bibendum. In nulla tortor, elementum vel, tempor at, varius non, purus.
+                Mauris vitae nisl nec metus placerat consectetuer. Donec ipsum. Proin imperdiet est.
+                Pellentesque ornare, orci in consectetuer hendrerit, urna elit eleifend nunc. Sed
+                lacus. Donec lectus. Nullam pretium nibh ut turpis. Nam bibendum. In nulla tortor,
+                elementum vel, tempor at, varius non, purus. Mauris vitae nisl nec metus placerat
+                consectetuer. </p>
+            </div>
+          </div>
+      <% end %>
+  <% end %>
+</div>
+<!-- end #content -->
